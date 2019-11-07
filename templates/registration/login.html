@@ -1,0 +1,23 @@
+<!--django login / logout function-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h2>Login</h2>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Anmelden</button>
+        </form>
+    </div>
+
+      <!--link for the registration site-->
+    <div class="container signin mt-5">
+        <p>Sie haben noch kein Login? <a href="{% url 'signup' %}">Registrieren</a></p>
+    </div>
+
+{% endblock content %}

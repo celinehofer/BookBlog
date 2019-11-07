@@ -1,0 +1,90 @@
+.header-image {
+    background-image: url("/static/img/bookshelfie2.JPG");
+    background-position-y: center;
+    height: 300px;
+    vertical-align: bottom;
+}
+
+nav {
+    background-color: #681E40;
+    color: white;
+}
+
+nav a {
+    color: white;
+}
+
+nav a:hover {
+    color: darkcyan;
+}
+
+.navbar-toggler svg {
+    fill: white;
+}
+
+.navbar-brand {
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+.nav-item a {
+    font-weight: bold;
+    font-size: x-large;
+    vertical-align: baseline;
+}
+
+.container {
+    margin-top: 50px;
+    padding-bottom: 40px;
+}
+
+.btn {
+    background-color: #681E40;
+    border-color: #681E40;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: darkcyan;
+    border-color: darkcyan;
+}
+
+.book-articles {
+    background-color: #e0d2d8;
+    padding: 15px 20px 5px 20px;
+    border-color: black;
+    margin-bottom: 20px;
+}
+
+h1{
+    color: #681E40;
+    font-weight: bold;
+}
+
+a{
+    color: darkcyan;
+}
+
+a:hover{
+    color: darkcyan;
+}
+
+.comments {
+    padding: 15px 20px 5px 20px;
+}
+
+.NumbersOfComments {
+    color: #681E40;
+}
+
+.LoginForComments {
+    color: #681E40;
+    font-style: italic;
+}
+
+footer {
+    width: 100%;
+    background-color: #681E40;
+    color: white;
+    text-align: center;
+}

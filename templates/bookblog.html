@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container mt-5">
+        <h1>Bücher</h1>
+
+        {% for book in books %}
+            <article class="book-articles">
+                <header>
+                    <h3>{{ book.title }} - {{ book.author }}</h3>
+                </header>
+                <p>
+                    Genre: {{ book.genre }}
+                </p>
+                <section>
+                    <p>
+                        Beschreibung: {{ book.description }}
+                    </p>
+                    <p>
+                        Rezension: {{ book.review }}
+                    </p>
+                </section>
+            </article>
+
+            <section class="comments mb-5">
+                <div class="NumbersOfComments">Kommentare: {{ book.comment_set.count }}</div>
+                {% for comment in book.comment_set.all|dictsortreversed:"date" %}
+                    <div class="comment">
+                        <p><b>{{ comment.user }}</b><small>-
+                            <time>{{ comment.date }}</time>
+                        </small></p>
+                        <p>{{ comment.text }}</p>
+                    </div>
+                {% endfor %}
+
+                {% if user.is_authenticated %}
+                    <aside>
+                        <form method="POST" action="/bookblog/comment">
+                            {% csrf_token %}
+                            <input type="hidden" name="bookId" value="{{ book.id }}">
+                            <div class="form-group">
+                                <textarea name="comment" class="form-control" placeholder="Kommentar..."></textarea>
+                            </div>
+                            <button class="btn btn-success" type="submit">Absenden</button>
+                        </form>
+                    </aside>
+                {% endif %}
+            {% if user.is_anonymous %}
+                <div class="LoginForComments">Loggen Sie sich ein, um Kommentare zu erfassen.</div>
+            {% endif %}
+            </section>
+
+
+        {% endfor %}
+
+
+    </div>
+
+{% endblock %}
