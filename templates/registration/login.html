@@ -1,10 +1,10 @@
-<!--django login / logout function-->
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %}Login{% endblock title %}
 
 {% block content %}
+
+    <!--Django Login-Funktion-->
     <div class="container">
         <h2>Login</h2>
         <br>
@@ -15,9 +15,9 @@
         </form>
     </div>
 
-      <!--link for the registration site-->
+    <!--Link zur Registerungs-Seite-->
     <div class="container signin mt-5">
-        <p>Sie haben noch kein Login? <a href="{% url 'signup' %}">Registrieren</a></p>
+        <p>Du hast noch kein Login? <a href="{% url 'signup' %}">Registrieren</a></p>
     </div>
 
 {% endblock content %}

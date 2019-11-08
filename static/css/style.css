@@ -33,7 +33,7 @@ nav a:hover {
     vertical-align: baseline;
 }
 
-.container {
+.container{
     margin-top: 50px;
     padding-bottom: 40px;
 }
@@ -49,6 +49,11 @@ nav a:hover {
     border-color: darkcyan;
 }
 
+.btn:active{
+    background-color: darkcyan! important;
+    border-color: darkcyan! important;
+}
+
 .book-articles {
     background-color: #e0d2d8;
     padding: 15px 20px 5px 20px;
@@ -56,16 +61,16 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-h1{
+h1 {
     color: #681E40;
     font-weight: bold;
 }
 
-a{
+a {
     color: darkcyan;
 }
 
-a:hover{
+a:hover {
     color: darkcyan;
 }
 

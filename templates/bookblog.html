@@ -1,38 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
+
     <div class="container mt-5">
         <h1>Bücher</h1>
 
+        <!--Anzeige der Bucheinträge-->
         {% for book in books %}
             <article class="book-articles">
                 <header>
                     <h3>{{ book.title }} - {{ book.author }}</h3>
                 </header>
-                <p>
-                    Genre: {{ book.genre }}
-                </p>
+                <p>Genre: {{ book.genre }}</p>
                 <section>
-                    <p>
-                        Beschreibung: {{ book.description }}
-                    </p>
-                    <p>
-                        Rezension: {{ book.review }}
-                    </p>
+                    <p>Beschreibung: {{ book.description }}</p>
+                    <p>Rezension: {{ book.review }}</p>
                 </section>
             </article>
 
+            <!--Anzeige Anzahl Kommentare pro Bucheintrag-->
             <section class="comments mb-5">
                 <div class="NumbersOfComments">Kommentare: {{ book.comment_set.count }}</div>
+
+                <!--Anzeige Kommentare mit Angabe zu User und Datum-->
                 {% for comment in book.comment_set.all|dictsortreversed:"date" %}
                     <div class="comment">
-                        <p><b>{{ comment.user }}</b><small>-
+                        <p><b>{{ comment.user }}</b><small> –
                             <time>{{ comment.date }}</time>
                         </small></p>
                         <p>{{ comment.text }}</p>
                     </div>
                 {% endfor %}
 
+                <!--wenn User eingeloggt, Kommentare zulassen-->
                 {% if user.is_authenticated %}
                     <aside>
                         <form method="POST" action="/bookblog/comment">
@@ -45,15 +46,13 @@
                         </form>
                     </aside>
                 {% endif %}
-            {% if user.is_anonymous %}
-                <div class="LoginForComments">Loggen Sie sich ein, um Kommentare zu erfassen.</div>
-            {% endif %}
+
+                <!--wenn User nicht eingeloggt, Meldung anzeigen-->
+                {% if user.is_anonymous %}
+                    <div class="LoginForComments">Melde dich an, um Kommentare zu erfassen!</div>
+                {% endif %}
             </section>
-
-
         {% endfor %}
 
-
     </div>
-
 {% endblock %}
